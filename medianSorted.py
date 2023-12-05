@@ -5,7 +5,7 @@ class Solution:
         i2 = len(nums2)-1
         m1 = 0
         m2 = 0
-
+        
         if(i1 ==0):
             m1 = nums1[i1]
         if(i2 == 0):
@@ -23,8 +23,12 @@ class Solution:
             else:
                 m2 = (nums2[math.floor(i2/2)]+nums2[math.ceil(i2/2)])/2
         
-        if(i1 >= 0 and i2 >= 0):
-            return (m1+m2)/2
+        if(m1 == m2):
+            return m1
+        if(m1 < m2):
+            return Solution.findMedianSortedArrays(self,nums1[:math.floor(len(nums1)/2)],nums2[math.floor(len(nums2)/2):])
+        if(m1 > m2):
+            return Solution.findMedianSortedArrays(self,nums1[math.floor(len(nums1)/2):],nums2[:math.floor(len(nums2)/2)])
         if(i1 < 0):
             return m2
         else:
