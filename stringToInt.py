@@ -10,7 +10,9 @@ class Solution:
             if ((c.isdigit() and c!=0) or c=='-'):
                 found=1
                 index1 = x
-                x+=1
+                #x+=1
+            if c.isalpha():
+                return 0
             else:
                 x+=1
 
@@ -30,3 +32,4 @@ class Solution:
 
 
 
+print(Solution.myAtoi(Solution,"42"))
