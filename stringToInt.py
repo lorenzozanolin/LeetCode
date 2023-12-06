@@ -28,8 +28,14 @@ class Solution:
                     found=0
 
         num = s[index1:index2+1]
-        return int(num) if (-2**31<=int(num)<=(2**31)-1) else -2**31
-
+        
+        
+        if (-2**31<=int(num)<=(2**31)-1):
+            return int(num) 
+        if (int(num)>(2**31)-1):
+            return (2**31)-1
+        else:
+            return -2**31
 
 
 print(Solution.myAtoi(Solution,"42"))
